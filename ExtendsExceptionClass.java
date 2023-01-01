@@ -15,7 +15,7 @@ public class ExtendsExceptionClass {
             System.out.println("error occur");
         }
     }
-    //throw 키워드로 예외 처리를 해당 메소드를 호출한 다른 메소드로 넘길 수 있다.
+    //throws 키워드로 예외 처리를 해당 메소드를 호출한 다른 메소드로 넘길 수 있다.
     public static void md1() throws IOException{  //IOExceoption 발생시 md1()을 호출한 메소드(main)로 예외처리를 넘김
         md2(); //md2()를 호출하는 메소드
     }
