@@ -6,8 +6,8 @@ class Point implements Cloneable{
         this.ypos = ypos;
     }
 
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
+    public Point clone() throws CloneNotSupportedException{
+        return (Point)(super.clone());
     }
     void changePos(int xpos, int ypos){
         this.xpos = xpos;
@@ -30,11 +30,11 @@ class Rectangle implements Cloneable{
         lowerRight.changePos(x2,y2);
     }
     @Override
-    public Object clone() throws CloneNotSupportedException{ //깊은 복사가 발생하도록 오버라이딩
+    public Rectangle clone() throws CloneNotSupportedException{ //깊은 복사가 발생하도록 오버라이딩
         Rectangle copy = (Rectangle)super.clone();
         //깊은 복사
-        copy.upperLeft = (Point)upperLeft.clone();
-        copy.lowerRight = (Point)lowerRight.clone();
+        copy.upperLeft = upperLeft.clone();
+        copy.lowerRight = lowerRight.clone();
 
         return copy;  //깊은 복사된 Rectangle copy가 Object 형으로 반환
     }
@@ -48,7 +48,7 @@ public class DeepCopy {
     public static void main(String[] args) {
         try{
             Rectangle r1 = new Rectangle(1,1,2,2);
-            Rectangle r2 = (Rectangle)r1.clone();
+            Rectangle r2 = r1.clone();
 
             r1.showInfo();
             r2.showInfo();
